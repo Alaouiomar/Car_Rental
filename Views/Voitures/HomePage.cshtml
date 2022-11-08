@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LOCATION_DES_VOITURES.Voiture>
+
+@{
+    ViewBag.Title = "HomePage";
+}
+
+<h2>HomePage</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6 hero-feature">
+            <div class="thumbnail">
+                <img src="@Url.Content(item.Vimage)" alt="..." width="242" height="200">
+                <div class="caption">                
+                    <p>.....</p>                    
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

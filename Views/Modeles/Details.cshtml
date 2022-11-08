@@ -1,0 +1,43 @@
+﻿@model LOCATION_DES_VOITURES.Modele
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Modele</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomMarque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomMarque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voiture.NumeroMatricule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voiture.NumeroMatricule)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idm }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

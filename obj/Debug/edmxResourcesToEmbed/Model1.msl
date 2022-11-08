@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocationModelStoreContainer" CdmEntityContainer="LocationEntities">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="LocationModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+          <ScalarProperty Name="NomCat" ColumnName="NomCat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="LocationModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="idc" ColumnName="idc" />
+          <ScalarProperty Name="NomPrenom" ColumnName="NomPrenom" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Cin" ColumnName="Cin" />
+          <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+          <ScalarProperty Name="permis" ColumnName="permis" />
+          <ScalarProperty Name="isadmin" ColumnName="isadmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modele">
+      <EntityTypeMapping TypeName="LocationModel.Modele">
+        <MappingFragment StoreEntitySet="Modele">
+          <ScalarProperty Name="idm" ColumnName="idm" />
+          <ScalarProperty Name="NomMarque" ColumnName="NomMarque" />
+          <ScalarProperty Name="Serie" ColumnName="Serie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservation">
+      <EntityTypeMapping TypeName="LocationModel.reservation">
+        <MappingFragment StoreEntitySet="reservation">
+          <ScalarProperty Name="idres" ColumnName="idres" />
+          <ScalarProperty Name="idc" ColumnName="idc" />
+          <ScalarProperty Name="idv" ColumnName="idv" />
+          <ScalarProperty Name="type_res" ColumnName="type_res" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="is_valid" ColumnName="is_valid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voiture">
+      <EntityTypeMapping TypeName="LocationModel.Voiture">
+        <MappingFragment StoreEntitySet="Voiture">
+          <ScalarProperty Name="idv" ColumnName="idv" />
+          <ScalarProperty Name="NumeroMatricule" ColumnName="NumeroMatricule" />
+          <ScalarProperty Name="DateCirculation" ColumnName="DateCirculation" />
+          <ScalarProperty Name="Carburant" ColumnName="Carburant" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Vimage" ColumnName="Vimage" />
+          <ScalarProperty Name="idcat" ColumnName="idcat" />
+          <ScalarProperty Name="idm" ColumnName="idm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

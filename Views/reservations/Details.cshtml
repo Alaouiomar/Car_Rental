@@ -1,0 +1,82 @@
+﻿@model LOCATION_DES_VOITURES.reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_res)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_res)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_debut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_valid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_valid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.NomPrenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.NomPrenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voiture.NumeroMatricule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voiture.NumeroMatricule)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idres }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

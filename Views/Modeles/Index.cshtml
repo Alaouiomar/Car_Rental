@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LOCATION_DES_VOITURES.Modele>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Modeles", FormMethod.Get))
+{
+}
+<table class="table">
+    <tr >
+        <th>
+            @Html.DisplayNameFor(model => model.idm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomMarque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Serie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voiture.NumeroMatricule)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomMarque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voiture.NumeroMatricule)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idm }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idm }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idm })
+            </td>
+        </tr>
+    }
+
+</table>

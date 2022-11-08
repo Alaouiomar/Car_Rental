@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LOCATION_DES_VOITURES.Client>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Clients", FormMethod.Get))
+{
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomPrenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_valid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.permis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isadmin)
+        </th>
+        @* <th>
+                @Html.DisplayNameFor(model => model.reservation.type_res)
+            </th>*@
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomPrenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNaissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Cin)" class="card-img-top" width="150" height="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_valid)
+            </td>
+            <td>
+                <img src="@Url.Content(item.permis)" class="card-img-top" width="150" height="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isadmin)
+            </td>
+            @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.reservation.type_res)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idc }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idc }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idc })
+            </td>
+        </tr>
+    }
+
+</table>

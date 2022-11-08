@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LocationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="idcat" />
+    </Key>
+    <Property Name="idcat" Type="Int32" Nullable="false" />
+    <Property Name="NomCat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Voiture" Relationship="Self.FK_Voiture_Categorie" FromRole="Categorie" ToRole="Voiture" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="idc" />
+    </Key>
+    <Property Name="idc" Type="Int32" Nullable="false" />
+    <Property Name="NomPrenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="is_valid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="permis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isadmin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="reservation" Relationship="Self.FK_reservation_Client" FromRole="Client" ToRole="reservation" />
+  </EntityType>
+  <EntityType Name="Modele">
+    <Key>
+      <PropertyRef Name="idm" />
+    </Key>
+    <Property Name="idm" Type="Int32" Nullable="false" />
+    <Property Name="NomMarque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Serie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Voiture" Relationship="Self.FK_Voiture_Modele" FromRole="Modele" ToRole="Voiture" />
+  </EntityType>
+  <EntityType Name="reservation">
+    <Key>
+      <PropertyRef Name="idres" />
+    </Key>
+    <Property Name="idres" Type="Int32" Nullable="false" />
+    <Property Name="idc" Type="Int32" />
+    <Property Name="idv" Type="Int32" />
+    <Property Name="type_res" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="date_debut" Type="DateTime" Precision="0" />
+    <Property Name="date_fin" Type="DateTime" Precision="0" />
+    <Property Name="is_valid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_reservation_Client" FromRole="reservation" ToRole="Client" />
+    <NavigationProperty Name="Voiture" Relationship="Self.FK_reservation_Voiture" FromRole="reservation" ToRole="Voiture" />
+  </EntityType>
+  <EntityType Name="Voiture">
+    <Key>
+      <PropertyRef Name="idv" />
+    </Key>
+    <Property Name="idv" Type="Int32" Nullable="false" />
+    <Property Name="NumeroMatricule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCirculation" Type="DateTime" Precision="0" />
+    <Property Name="Carburant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prix" Type="Double" />
+    <Property Name="Vimage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idcat" Type="Int32" />
+    <Property Name="idm" Type="Int32" />
+    <NavigationProperty Name="Categorie" Relationship="Self.FK_Voiture_Categorie" FromRole="Voiture" ToRole="Categorie" />
+    <NavigationProperty Name="Modele" Relationship="Self.FK_Voiture_Modele" FromRole="Voiture" ToRole="Modele" />
+    <NavigationProperty Name="reservation" Relationship="Self.FK_reservation_Voiture" FromRole="Voiture" ToRole="reservation" />
+  </EntityType>
+  <Association Name="FK_Voiture_Categorie">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Voiture" Type="Self.Voiture" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="idcat" />
+      </Principal>
+      <Dependent Role="Voiture">
+        <PropertyRef Name="idv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_reservation_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="idc" />
+      </Principal>
+      <Dependent Role="reservation">
+        <PropertyRef Name="idres" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voiture_Modele">
+    <End Role="Modele" Type="Self.Modele" Multiplicity="1" />
+    <End Role="Voiture" Type="Self.Voiture" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Modele">
+        <PropertyRef Name="idm" />
+      </Principal>
+      <Dependent Role="Voiture">
+        <PropertyRef Name="idv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_reservation_Voiture">
+    <End Role="Voiture" Type="Self.Voiture" Multiplicity="1" />
+    <End Role="reservation" Type="Self.reservation" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Voiture">
+        <PropertyRef Name="idv" />
+      </Principal>
+      <Dependent Role="reservation">
+        <PropertyRef Name="idres" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LocationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Modele" EntityType="Self.Modele" />
+    <EntitySet Name="reservation" EntityType="Self.reservation" />
+    <EntitySet Name="Voiture" EntityType="Self.Voiture" />
+    <AssociationSet Name="FK_Voiture_Categorie" Association="Self.FK_Voiture_Categorie">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Voiture" EntitySet="Voiture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_reservation_Client" Association="Self.FK_reservation_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="reservation" EntitySet="reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voiture_Modele" Association="Self.FK_Voiture_Modele">
+      <End Role="Modele" EntitySet="Modele" />
+      <End Role="Voiture" EntitySet="Voiture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_reservation_Voiture" Association="Self.FK_reservation_Voiture">
+      <End Role="Voiture" EntitySet="Voiture" />
+      <End Role="reservation" EntitySet="reservation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

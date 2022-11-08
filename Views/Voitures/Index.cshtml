@@ -1,0 +1,98 @@
+﻿@model IEnumerable<LOCATION_DES_VOITURES.Voiture>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Voitures", FormMethod.Get))
+{
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroMatricule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCirculation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carburant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vimage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idcat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie.NomCat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modele.NomMarque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reservation.type_res)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroMatricule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCirculation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carburant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prix)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Vimage)" class="card-img-top" width="150" height="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idcat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorie.NomCat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modele.NomMarque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reservation.type_res)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idv }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idv }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idv })
+            </td>
+        </tr>
+    }
+
+</table>

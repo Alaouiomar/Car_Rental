@@ -1,0 +1,99 @@
+﻿@model LOCATION_DES_VOITURES.Voiture
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Voiture</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroMatricule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroMatricule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCirculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCirculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carburant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carburant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vimage)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Vimage)" class="card-img-top" width="150" height="150" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idcat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idcat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie.NomCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorie.NomCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modele.NomMarque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modele.NomMarque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reservation.type_res)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reservation.type_res)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idv }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

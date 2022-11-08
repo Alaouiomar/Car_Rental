@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LOCATION_DES_VOITURES.reservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_res)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_valid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.NomPrenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voiture.NumeroMatricule)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_res)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_debut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_valid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.NomPrenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voiture.NumeroMatricule)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idres }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idres }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idres })
+        </td>
+    </tr>
+}
+
+</table>
